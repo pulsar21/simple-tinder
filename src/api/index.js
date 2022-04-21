@@ -9,7 +9,7 @@ const axiosRequest = axios.create({
     baseURL: BASE_URL,
     headers: {
         "Content-Type": "application/json",
-        ...(accessToken && { Authorization: `Bearer ${accessToken}` }),
+        ...(accessToken && {Authorization: accessToken}),
     },
 });
 
@@ -18,7 +18,7 @@ axiosRequest.interceptors.request.use(
         if (!accessToken) {
             accessToken = localStorage.getItem(ACCESS_TOKEN)
             if (accessToken) {
-                request.headers["Authorization"] = `Bearer ${accessToken}`;
+                request.headers["Authorization"] = accessToken;
             }
         }
         return request;

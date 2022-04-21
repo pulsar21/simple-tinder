@@ -1,10 +1,12 @@
 import {Route, Switch, Redirect} from "react-router-dom"
 import {privateRoutes, publicRoutes} from "../../routes";
 import {PublicLayout, PrivateLayout} from "../../layouts";
-import {AUTH_ROUTE} from "../../routes/consts";
+import {AUTH_ROUTE, HOME_ROUTE} from "../../routes/consts";
+import {useMemo} from "react";
+import {accessToken} from "../../api";
 
-const AppRouter = () => {
-    const isAuth = false;
+const AppRouter = ({user}) => {
+    const isAuth = useMemo(() => !!accessToken, []);
     return (
         <Switch>
             {
@@ -12,7 +14,7 @@ const AppRouter = () => {
                     ? privateRoutes.map(({path, Component, isFooter}) => (
                         <Route key={path} path={path} exact>
                             <PrivateLayout isFooter={isFooter}>
-                                <Component/>
+                                <Component user={user}/>
                             </PrivateLayout>
                         </Route>
                     ))
@@ -24,7 +26,7 @@ const AppRouter = () => {
                         </Route>
                     ))
             }
-            <Redirect to={AUTH_ROUTE}/>
+            <Redirect to={isAuth ? HOME_ROUTE : AUTH_ROUTE}/>
         </Switch>
     );
 };

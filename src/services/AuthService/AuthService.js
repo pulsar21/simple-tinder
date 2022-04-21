@@ -16,4 +16,12 @@ export default class AuthService {
             console.error(e);
         }
     }
+
+    static async me(params) {
+        try {
+            return await axiosRequest.get(`me/`, {params});
+        } catch (e) {
+            console.error(e);
+        }
+    }
 }

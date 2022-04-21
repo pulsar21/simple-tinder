@@ -10,10 +10,11 @@ import Messenger from "./Messenger/Messenger";
 import MessengerDefault from "./Messenger/MessengerDefault/MessengerDefault";
 import AuthHeader from "./Auth/AuthHeader/AuthHeader";
 import SignInForm from "./Auth/SignIn/SignInForm/SignInForm";
+import SignUpForm from "./Auth/SingUp/SignUpForm/SignUpForm";
 
 export {
     AppRouter, Header, Footer, HomeCard,
     HomeActions, ProfileSettings, LikeMember,
     Couples, Messenger, MessengerDefault,
-    AuthHeader, SignInForm
+    AuthHeader, SignInForm, SignUpForm
 }

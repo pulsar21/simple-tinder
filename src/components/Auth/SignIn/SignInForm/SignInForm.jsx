@@ -8,6 +8,8 @@ import "./SignInForm.scss";
 import classNames from "classnames";
 import { ErrorMessage } from '@hookform/error-message';
 import {AuthService} from "../../../../services";
+import {ACCESS_TOKEN} from "../../../../consts";
+import {HOME_ROUTE} from "../../../../routes/consts";
 
 const SignInForm = () => {
     const {goBack} = useHistory()
@@ -19,8 +21,11 @@ const SignInForm = () => {
     const {errors, isSubmitting} = formState;
 
     const onSubmit = async (data) => {
-        const res = await signIn(data);
-        console.log(res);
+        const {token: {token}} = await signIn(data);
+        if (token) {
+            localStorage.setItem(ACCESS_TOKEN, token);
+            window.location.href = HOME_ROUTE;
+        }
     };
     return (
         <div className={"signInForm"}>

@@ -4,8 +4,9 @@ import "./Profile.scss"
 import {ProfileSettings} from "../../components";
 import {useHistory} from "react-router-dom";
 
-const Profile = () => {
+const Profile = ({user}) => {
     const {goBack} = useHistory()
+    console.log(user)
     return (
         <section className={"profile"}>
             <div className={"profile__header"}>
@@ -22,10 +23,10 @@ const Profile = () => {
                 className={"profile__avatar"}
                 width={200}
                 height={200}
-                name={"/assets/img/test.jpg"}
+                name={user.image}
             />
             <h1 className={"profile__name"}>
-                Zhaslan, 22
+                {user.name}, {user.age}
             </h1>
             <ProfileSettings/>
         </section>
