@@ -1,0 +1,47 @@
+@import "src/styles/variables";
+
+.messenger {
+  margin-top: 24px;
+  padding-bottom: 72px;
+
+  &__title {
+    font-weight: 600;
+  }
+
+  &__list {
+    margin-top: 20px;
+    overflow-x: scroll;
+  }
+
+  &__item {
+    margin-top: 10px;
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+
+  &__content {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  &__img {
+    max-width: 74px;
+    width: 100%;
+    height: 74px;
+    border-radius: 100px;
+    background-position: center;
+    background-size: cover;
+  }
+
+  &__about {
+    border-bottom: 1px solid $silver_slow;
+  }
+
+  &__desc {
+    padding: 5px 0;
+    font-size: 14px;
+  }
+}

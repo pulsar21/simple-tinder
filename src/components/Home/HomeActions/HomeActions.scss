@@ -1,0 +1,38 @@
+@import "src/styles/variables";
+
+.homeActions {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+  &__item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    border: 2px solid;
+    border-radius: 100%;
+    background-color: inherit;
+    box-shadow: 0 10px 50px 0 rgba(0, 0, 0, 0.199);
+
+    &:nth-child(1) {
+      border-color: #F05169;
+    }
+
+    &:nth-child(2) {
+      border-color: #3BCAF7;
+    }
+
+    &:nth-child(3) {
+      border-color: #26DCA3;
+    }
+  }
+
+  &__icon {
+    & > svg {
+      width: 30px;
+      height: 30px;
+    }
+  }
+}

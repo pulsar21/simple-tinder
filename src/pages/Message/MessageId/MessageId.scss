@@ -1,0 +1,52 @@
+@import "src/styles/variables";
+
+.messageId {
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 45px;
+    border-bottom: 1px solid $ghost;
+    margin: 0 -12px;
+    padding: 0 12px;
+  }
+
+  &__avatar {
+    display: flex;
+    align-items: center;
+  }
+
+  &__name {
+    margin-left: 6px;
+  }
+
+  &__more {
+    transform: rotate(90deg);
+  }
+
+  &__message {
+    position: fixed;
+    bottom: 0;
+    max-width: 425px;
+    width: 100%;
+    margin: 0 -12px;
+    display: flex;
+    align-items: flex-start;
+
+    & > textarea {
+      width: 70%;
+      padding: 5px 5px 20px 5px;
+      border-top: 1px solid $ghost;
+    }
+  }
+
+  &__btn {
+    width: 30%;
+    height: 100%;
+    border-top: 1px solid $ghost;
+
+    & > button {
+      margin: 20px auto;
+    }
+  }
+}

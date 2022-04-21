@@ -1,0 +1,19 @@
+@import "src/styles/variables";
+
+.tab {
+  width: 50%;
+  text-align: center;
+
+  &:first-child {
+    border-right: 1px solid $ghost;
+    margin: 10px 0;
+  }
+
+  &.active {
+    font-weight: 600;
+  }
+
+  &__text {
+    font-size: 18px;
+  }
+}

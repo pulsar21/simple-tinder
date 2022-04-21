@@ -1,0 +1,41 @@
+@import "../../styles/variables";
+
+.btn {
+  position: relative;
+  border: none;
+  outline: none;
+  background: $white;
+  font-size: 16px;
+  padding: 12px 28px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &--default {
+    padding: 0;
+  }
+
+  &--red-text {
+    color: $red;
+  }
+
+  &--disabled-text {
+    color: $ghost;
+  }
+
+  &--pill {
+    border-radius: 100px;
+  }
+
+  &--white {
+    background-color: $white;
+    font-weight: 500;
+  }
+
+  &--outline-white {
+    border: 1px solid $white;
+    color: $white;
+    background-color: inherit;
+    font-weight: 500;
+  }
+}

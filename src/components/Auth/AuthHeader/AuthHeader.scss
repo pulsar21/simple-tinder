@@ -1,0 +1,10 @@
+@import "src/styles/variables";
+
+.authHeader {
+  &__icon {
+    & > svg {
+      width: 100px;
+      height: 25px;
+    }
+  }
+}

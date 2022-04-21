@@ -1,0 +1,7 @@
+@import "src/styles/variables";
+
+.validation-error {
+  &__text {
+    color: $red;
+  }
+}

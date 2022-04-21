@@ -1,0 +1,7 @@
+.article {
+  height: 100%;
+
+  & > div > section {
+    height: calc(100% - 160px);
+  }
+}

@@ -1,0 +1,25 @@
+@import "src/styles/variables";
+
+.likeMe {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  overflow-y: scroll;
+  padding-bottom: 72px;
+  margin-top: 20px;
+
+  &__content {
+    height: 300px;
+    box-shadow: 0 20px 25px 0 rgba(0, 0, 0, 0.356);
+    border-radius: 10px;
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    align-items: flex-end;
+    padding: 10px;
+  }
+
+  &__name {
+    color: $white;
+  }
+}

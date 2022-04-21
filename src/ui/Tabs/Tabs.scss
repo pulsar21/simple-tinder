@@ -1,0 +1,13 @@
+@import "src/styles/variables";
+
+.tabs {
+  border-bottom: 1px solid $ghost;
+  margin: 0 -12px;
+
+  &__list {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+}

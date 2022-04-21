@@ -1,0 +1,25 @@
+@import "src/styles/variables";
+
+.messengerDefault {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  &__title {
+    font-weight: 500;
+
+    & > span {
+      font-weight: 700;
+    }
+  }
+
+  &__desc {
+    margin-top: 12px;
+  }
+
+  &__avatar {
+    margin-top: 12px;
+  }
+}

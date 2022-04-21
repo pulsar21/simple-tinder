@@ -1,0 +1,15 @@
+@import "src/styles/variables";
+
+.textarea {
+  font-size: 14px;
+  line-height: 20px;
+  width: 100%;
+  border: none;
+  outline: none;
+  resize: none;
+  transition: 0.1s ease-out;
+
+  &::placeholder {
+    color: $silver;
+  }
+}
