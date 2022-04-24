@@ -1,11 +1,11 @@
 import {PieChart, Pie, Cell, ResponsiveContainer, Legend} from 'recharts';
 import {useMemo} from "react";
 
-const CustomPie = ({genders}) => {
+const CustomPieStatus = ({status}) => {
     const data = useMemo(() => [
-        { name: 'Мужчины', value: genders.male },
-        { name: 'Женщины', value: genders.female },
-    ], [genders]);
+        { name: 'Совпадение', value: status.matched },
+        { name: 'Отклонение', value: status.rejected },
+    ], [status]);
 
     const COLORS = ['#8884d8', '#00C49F'];
 
@@ -45,4 +45,4 @@ const CustomPie = ({genders}) => {
     );
 };
 
-export default CustomPie;
+export default CustomPieStatus;

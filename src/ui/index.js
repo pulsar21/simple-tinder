@@ -12,6 +12,7 @@ import Button from "./Button/Button";
 import CustomPie from "./Chart/CustomPie/CustomPie";
 import CustomBar from "./Chart/CustomBar/CustomBar";
 import CustomArea from "./Chart/CustomArea/CustomArea";
+import CustomPieStatus from "./Chart/CustomPieStatus/CustomPieStatus";
 import Tag from "./Tag/Tag";
 import ValidationError from "./ValidationError/ValidationError";
 import BtnLoader from "./Loader/BtnLoader/BtnLoader";
@@ -22,5 +23,5 @@ export {
     Search, Input, TextArea,
     Button, CustomPie, CustomBar,
     CustomArea, Tag, ValidationError,
-    BtnLoader
+    BtnLoader, CustomPieStatus
 }

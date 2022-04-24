@@ -16,4 +16,12 @@ export default class StatisticService {
             console.error(e);
         }
     }
+
+    static async getStatisticStatus() {
+        try {
+            return await axiosRequest.get(`/graphics/getStatuses/`)
+        } catch (e) {
+            console.error(e);
+        }
+    }
 }
