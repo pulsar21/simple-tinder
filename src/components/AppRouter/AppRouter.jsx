@@ -13,7 +13,7 @@ const AppRouter = ({user}) => {
                 isAuth
                     ? privateRoutes.map(({path, Component, isFooter}) => (
                         <Route key={path} path={path} exact>
-                            <PrivateLayout isFooter={isFooter}>
+                            <PrivateLayout isFooter={isFooter} user={user}>
                                 <Component user={user}/>
                             </PrivateLayout>
                         </Route>

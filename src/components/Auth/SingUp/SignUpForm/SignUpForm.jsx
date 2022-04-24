@@ -5,14 +5,25 @@ import {ErrorMessage} from "@hookform/error-message";
 import {useForm} from "react-hook-form";
 import {useHistory} from "react-router-dom";
 import "./SignUpForm.scss";
+import {yupResolver} from "@hookform/resolvers/yup";
+import {signUpSchema} from "../../../../utils/schemas";
+import {useSignUp} from "../../../../hooks";
+import Select from 'react-select';
 
-const SignUpForm = () => {
+const SignUpForm = ({next}) => {
+    const {setValues} = useSignUp();
     const {goBack} = useHistory()
-    const {handleSubmit, formState, register} = useForm()
-    const {errors, isSubmitting} = formState;
+    const {handleSubmit, formState, register, setValue} = useForm({resolver: yupResolver(signUpSchema), mode: "onBlur"})
+    const {errors} = formState;
 
+    const options = [
+        { value: 'male', label: 'Мужчина' },
+        { value: 'female', label: 'Женщина' }
+    ];
+    console.log(errors);
     const onSubmit = async (data) => {
-        console.log(data)
+        setValues(data);
+        next();
     }
     return (
         <div className={"signUpForm"}>
@@ -22,10 +33,9 @@ const SignUpForm = () => {
             <form className={"signUpForm__form"} onSubmit={handleSubmit(onSubmit)}>
                 <div>
                     <Input
-                        className={classNames("input--white input--pill", {"input--error": errors.email})}
+                        className={classNames("input--white input--pill", {"input--error": errors.name})}
                         label={"Имя"}
                         placeholder={"Введите имя"}
-                        autoComplete={"off"}
                         {...register("name", {required: true})}
                     />
                     <ErrorMessage
@@ -36,11 +46,10 @@ const SignUpForm = () => {
                 </div>
                 <div>
                     <Input
-                        className={classNames("input--white input--pill", {"input--error": errors.email})}
+                        className={classNames("input--white input--pill", {"input--error": errors.age})}
                         type={"number"}
                         label={"Возраст"}
                         placeholder={"Введите возраст"}
-                        autoComplete={"off"}
                         {...register("age", {required: true, min: 18, max: 100})}
                     />
                     <ErrorMessage
@@ -54,7 +63,6 @@ const SignUpForm = () => {
                         className={classNames("input--white input--pill", {"input--error": errors.email})}
                         label={"Почта"}
                         placeholder={"Введите почту"}
-                        autoComplete={"off"}
                         {...register("email", {required: true})}
                     />
                     <ErrorMessage
@@ -64,12 +72,27 @@ const SignUpForm = () => {
                     />
                 </div>
                 <div>
+                    <div>
+                        <p className={"signUpForm__label"}>Пол</p>
+                        <Select
+                            className={classNames("signUpForm__select select--white", {"signUpForm__error": errors.password})}
+                            placeholder={"Выберите пол"}
+                            onChange={(e) => setValue("gender", e.value)}
+                            options={options}
+                        />
+                    </div>
+                    <ErrorMessage
+                        errors={errors}
+                        name="gender"
+                        render={({ message }) => <ValidationError message={message}/>}
+                    />
+                </div>
+                <div>
                     <Input
                         className={classNames("input--white input--pill", {"input--error": errors.password})}
                         type={"password"}
                         label={"Пароль"}
                         placeholder={"Введите пароль"}
-                        autoComplete={"off"}
                         {...register("password", {required: true})}
                     />
                     <ErrorMessage
@@ -80,11 +103,10 @@ const SignUpForm = () => {
                 </div>
                 <div>
                     <Input
-                        className={classNames("input--white input--pill", {"input--error": errors.password})}
+                        className={classNames("input--white input--pill", {"input--error": errors.password_confirmation})}
                         type={"password"}
                         label={"Павторите пароль"}
                         placeholder={"Введите павторный пароль"}
-                        autoComplete={"off"}
                         {...register("password_confirmation", {required: true})}
                     />
                     <ErrorMessage
@@ -98,8 +120,7 @@ const SignUpForm = () => {
                         className={"btn--pill btn--white"}
                         loaderClassName={"btn-loader--dark"}
                         type={"submit"}
-                        text={"Зарегистрироваться"}
-                        loading={isSubmitting}
+                        text={"Далее"}
                     />
                     <Button
                         className={"btn--pill btn--outline-white"}

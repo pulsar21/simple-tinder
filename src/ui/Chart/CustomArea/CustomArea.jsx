@@ -1,9 +1,9 @@
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 
-const CustomArea = () => {
+const CustomArea = ({ages}) => {
     const data = [
         {
-            name: 'Page A',
+            name: '18-31',
             uv: 4000,
             pv: 2400,
             amt: 2400,

@@ -13,6 +13,12 @@
     }
   }
 
+  &--white {
+    & > div {
+      border-color: $white transparent transparent transparent !important;
+    }
+  }
+
   & > div {
     position: absolute;
     width: 20px;

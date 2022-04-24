@@ -1,12 +1,12 @@
 import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
-const CustomBar = () => {
+const CustomBar = ({ages}) => {
     const data = [
         {
             name: 'Page A',
-            uv: 4000,
-            pv: 2400,
-            amt: 2400,
+            uv: 6000,
+            pv: 5000,
+            amt: 5000,
         },
         {
             name: 'Page B',

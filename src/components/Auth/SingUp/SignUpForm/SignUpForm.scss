@@ -15,7 +15,7 @@
   }
 
   &__form {
-    margin-top: 40px;
+    margin-top: 20px;
     display: flex;
     flex-direction: column;
     gap: 12px;
@@ -31,7 +31,7 @@
   }
 
   &__btns {
-    margin-top: 40px;
+    margin-top: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -42,5 +42,34 @@
       width: 340px;
       height: 54px;
     }
+  }
+
+  &__select {
+    & > div {
+      &:nth-child(3) {
+        border: 0;
+        box-shadow: none;
+        padding: 0 10px;
+        border-radius: 100px;
+        height: 54px;
+      }
+
+      & > div > div {
+        font-size: 14px;
+        font-weight: normal;
+        line-height: 140%;
+        color: $silver;
+      }
+    }
+  }
+
+  &__error {
+    & > div {
+      border: 1px solid $red !important;
+    }
+  }
+
+  &__label {
+    color: $white;
   }
 }

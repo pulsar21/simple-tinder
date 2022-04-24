@@ -11,10 +11,13 @@ import MessengerDefault from "./Messenger/MessengerDefault/MessengerDefault";
 import AuthHeader from "./Auth/AuthHeader/AuthHeader";
 import SignInForm from "./Auth/SignIn/SignInForm/SignInForm";
 import SignUpForm from "./Auth/SingUp/SignUpForm/SignUpForm";
+import SignUpConfirm from "./Auth/SingUp/SignUpConfirm/SignUpConfirm";
+import SignUpImage from "./Auth/SingUp/SignUpImage/SignUpImage";
 
 export {
     AppRouter, Header, Footer, HomeCard,
     HomeActions, ProfileSettings, LikeMember,
     Couples, Messenger, MessengerDefault,
-    AuthHeader, SignInForm, SignUpForm
+    AuthHeader, SignInForm, SignUpForm,
+    SignUpConfirm, SignUpImage
 }

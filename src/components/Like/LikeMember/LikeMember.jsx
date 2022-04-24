@@ -1,44 +1,37 @@
 import React from 'react';
-import {List} from "../../../ui";
+import {Icon, List} from "../../../ui";
 import "./LikeMember.scss";
 import {useHistory} from "react-router-dom";
 import {LIKE_ROUTE} from "../../../routes/consts";
+import {findImage} from "../../../utils/functions";
+import {MemberService} from "../../../services";
+import {ACCESS_TOKEN} from "../../../consts";
 
-const LikeMember = () => {
+const LikeMember = ({members, isLike=false, setLikedMembers}) => {
     const {push} = useHistory()
-    const cards = [
-        {
-            name: "Vinsmoke Sanji",
-            image: "https://i.pinimg.com/564x/f4/5f/f5/f45ff54ede674f89580b33617015b6c8.jpg"
-        },
-        {
-            name: "Roronoa Zoro",
-            image: "https://i.pinimg.com/564x/fc/d8/0c/fcd80c12ea7d13936c625f93cce57044.jpg"
-        },
-        {
-            name: "Monkey D. luffy",
-            image: "https://i.pinimg.com/564x/45/4e/a4/454ea4e4969afa2093c1f1de9ed278b9.jpg"
-        },
-        {
-            name: "Monkey D. luffy",
-            image: "https://i.pinimg.com/564x/45/4e/a4/454ea4e4969afa2093c1f1de9ed278b9.jpg"
-        },
-        {
-            name: "Monkey D. luffy",
-            image: "https://i.pinimg.com/564x/45/4e/a4/454ea4e4969afa2093c1f1de9ed278b9.jpg"
-        }
-    ];
-    return (
+    const {targetMemberChange} = MemberService;
+
+    const onTarget = async (e, id, status) => {
+        e.preventDefault();
+        e.stopPropagation();
+        setLikedMembers(prev => prev.filter((p) => p.id !== id));
+        await targetMemberChange(id, status, {authorization: localStorage.getItem(ACCESS_TOKEN)});
+    }
+    return ( members &&
         <List
             className={"likeMe"}
-            items={cards}
-            renderItem={(card, cardId) => (
-                <li key={cardId} className={"likeMe__item"} onClick={() => push(`${LIKE_ROUTE}/${cardId+1}`)}>
+            items={members}
+            renderItem={(member) => (
+                <li key={member.id} className={"likeMe__item"} onClick={() => push(`${LIKE_ROUTE}/${member.id}`)}>
                     <div
                         className={"likeMe__content"}
-                        style={{backgroundImage: `url(${card.image})`}}
+                        style={{backgroundImage: member.image ? `url(${findImage(member.image)})` : `url(https://i.pinimg.com/564x/f4/5f/f5/f45ff54ede674f89580b33617015b6c8.jpg)`}}
                     >
-                        <h3 className={"likeMe__name"}>{card.name}</h3>
+                        {isLike && <div className={"likeMe__icons"}>
+                            <Icon className={"likeMe__icon"} name={"close"} handleClick={(e) => onTarget(e, member.id, -1)}/>
+                            <Icon className={"likeMe__icon"} name={"heart"} handleClick={(e) => onTarget(e, member.id, 1)}/>
+                        </div>}
+                        <h3 className={"likeMe__name"}>{member.name}</h3>
                     </div>
                 </li>
             )}

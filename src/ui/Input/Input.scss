@@ -61,4 +61,11 @@
       background-color: $white;
     }
   }
+
+  &--file {
+    .input__field {
+      background-color: inherit;
+
+    }
+  }
 }

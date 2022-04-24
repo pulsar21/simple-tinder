@@ -2,8 +2,9 @@ import {useHistory} from "react-router-dom";
 import {Avatar, Image} from "../../ui";
 import "./Header.scss";
 import {PROFILE_ROUTE} from "../../routes/consts";
+import {findImage} from "../../utils/functions";
 
-const Header = () => {
+const Header = ({user}) => {
     const {push} = useHistory()
     return (
         <header className={"header"}>
@@ -11,7 +12,7 @@ const Header = () => {
                 className={"header__avatar"}
                 width={50}
                 height={50}
-                name={"/assets/img/test.jpg"}
+                name={findImage(user.image)}
                 onClick={() => push(PROFILE_ROUTE)}
             />
             <Image

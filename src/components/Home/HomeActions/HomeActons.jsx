@@ -4,9 +4,8 @@ import "./HomeActions.scss";
 
 const HomeActions = () => {
     const actions = [
-        {id: 1, name: "close", onClick: () => console.log("ok")},
-        {id: 2, name: "replay", onClick: () => console.log("ok")},
-        {id: 3, name: "heart", onClick: () => console.log("ok")},
+        {id: 1, name: "close"},
+        {id: 2, name: "heart"},
     ];
     return (
         <List

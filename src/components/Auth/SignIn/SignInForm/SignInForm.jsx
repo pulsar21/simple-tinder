@@ -21,9 +21,9 @@ const SignInForm = () => {
     const {errors, isSubmitting} = formState;
 
     const onSubmit = async (data) => {
-        const {token: {token}} = await signIn(data);
-        if (token) {
-            localStorage.setItem(ACCESS_TOKEN, token);
+        const res = await signIn(data);
+        if (res) {
+            localStorage.setItem(ACCESS_TOKEN, res.token);
             window.location.href = HOME_ROUTE;
         }
     };
@@ -69,6 +69,7 @@ const SignInForm = () => {
                         type={"submit"}
                         text={"Авторизоваться"}
                         loading={isSubmitting}
+                        disabled={isSubmitting}
                     />
                     <Button
                         className={"btn--pill btn--outline-white"}

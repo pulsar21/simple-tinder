@@ -1,0 +1,118 @@
+@import "src/styles/variables";
+
+.singUpImage {
+  background-color: $white;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 200;
+  width: calc(100% + 12px);
+  height: 100vh;
+  margin: 0 -12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 120px;
+
+  &__icon {
+    position: absolute;
+    top: 20px;
+    left: 24px;
+
+    & > svg {
+      width: 100px;
+      height: 25px;
+    }
+  }
+
+  &__title {
+    text-align: center;
+    color: $dark;
+    font-weight: 700;
+    font-size: 38px;
+    font-style: italic;
+  }
+
+  &__form {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  &__tags {
+    max-width: 340px;
+    width: 100%;
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  &__tag {
+    cursor: pointer;
+
+    &.active {
+      & > div {
+        border-color: $red;
+
+        & > p {
+          color: $red;
+        }
+      }
+    }
+  }
+
+  &__btns {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+
+    & > button {
+      width: 340px;
+      height: 54px;
+    }
+  }
+
+  &__drag {
+    margin-top: 20px;
+    padding: 20px;
+    max-width: 340px;
+    width: 100%;
+    border: 1px solid $silver;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    & > p {
+      text-align: center;
+      margin-top: 20px;
+    }
+  }
+
+  &__upload {
+    & > svg {
+      width: 100px;
+      height: 25px;
+    }
+  }
+
+  &__preview {
+    & > div {
+      width: 100%;
+      height: 300px;
+      background-position: center;
+      background-size: cover;
+    }
+  }
+
+  &__img {
+    visibility: hidden;
+  }
+}
