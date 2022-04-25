@@ -47,7 +47,7 @@ const MessageId = () => {
                     name={"more"}
                 />
             </div>
-            {memberChart.length === 0 && <MessengerDefault member={member}/>}
+            {memberChart?.length === 0 && <MessengerDefault member={member}/>}
             <div className={"messageId__message"}>
                 <TextArea
                     className={"input--message"}

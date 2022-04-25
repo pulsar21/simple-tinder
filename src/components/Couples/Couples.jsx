@@ -13,6 +13,7 @@ const Couples = ({matches}) => {
     const onCreateChat = async (id) => {
         const res = await createChat({receiver_id: id, authorization: localStorage.getItem(ACCESS_TOKEN)})
         if (res) {
+            localStorage.setItem("receiver", JSON.stringify(id))
             await push(`${MESSAGE_ROUTE}/${id}`);
         }
     };
@@ -23,7 +24,7 @@ const Couples = ({matches}) => {
                 className={"couples__slider"}
                 items={matches}
                 renderItem={(match) => (
-                    <li key={match.id} className={"couples__item"} onClick={() => onCreateChat(match.user_id)}>
+                    <li key={match.id} className={"couples__item"} onClick={() => onCreateChat(match.target_user_id)}>
                         <div
                             className={"couples__content"}
                             style={{backgroundImage: `url(${match.match.image ? findImage(match.match.image) : "https://i.pinimg.com/564x/45/4e/a4/454ea4e4969afa2093c1f1de9ed278b9.jpg"})`}}
